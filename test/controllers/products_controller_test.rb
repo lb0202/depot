@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   setup do
-    @product = products (:one)
+    @product = products(:one)
     @update = {
       title: 'Lorem Ipsum',
       description: 'Wibbles are fun!',
@@ -23,7 +23,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
-    assert_difference('Product.count') do
+    assert_difference ('Product.count') do
       post :create, product: @update
     end
 
