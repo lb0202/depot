@@ -1,0 +1,1209 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20140808194810)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140808194810"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/products/" for 127.0.0.1 at 2014-08-08 20:52:42 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 949ms (Views: 921.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 20:52:43 +0100
+
+
+Started GET "/products/new" for 127.0.0.1 at 2014-08-08 20:52:47 +0100
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (93.9ms)
+  Rendered products/new.html.erb within layouts/application (123.3ms)
+Completed 200 OK in 131ms (Views: 128.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-08 20:53:29 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Coffee", "description"=>"Coffeescript sdfalskdfjlskdkflajflsdfj", "image_url"=>"cs.jpg", "price"=>"36.00"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (40.9ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Aug 2014 19:53:29 UTC +00:00], ["description", "Coffeescript sdfalskdfjlskdkflajflsdfj"], ["image_url", "cs.jpg"], ["price", #<BigDecimal:7fbedb318908,'0.36E2',9(18)>], ["title", "Coffee"], ["updated_at", Fri, 08 Aug 2014 19:53:29 UTC +00:00]]
+  [1m[36m (52.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 99ms (ActiveRecord: 93.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2014-08-08 20:53:30 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 20:53:30 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 20:53:30 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 20:53:30 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 20:53:46 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (18.7ms)[0m  DELETE FROM "products"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (81.0ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Aug 2014 21:30:47 UTC +00:00], ["description", "<p>\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\n\tshows you how to hold onto all the power and flexibility of JavaScript\n\twhile writing clearer, cleaner, and safer code.\n      </p>"], ["image_url", "cs.jpg"], ["price", #<BigDecimal:7fb40c093ae0,'0.36E2',9(36)>], ["title", "CoffeeScript"], ["updated_at", Fri, 08 Aug 2014 21:30:47 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Aug 2014 21:30:48 UTC +00:00], ["description", "<p>\n        Ruby is the fastest growing and most exciting dynamic language\n        out there. If you need to get working programs delivered fast,\n        you should add Ruby to your toolbox.\n      </p>"], ["image_url", "ruby.jpg"], ["price", #<BigDecimal:7fb40ab791a0,'0.4995E2',18(45)>], ["title", "Programming Ruby 1.9 & 2.0"], ["updated_at", Fri, 08 Aug 2014 21:30:48 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Aug 2014 21:30:48 UTC +00:00], ["description", "<p>\n        <em>Rails Test Prescriptions</em> is a comprehensive guide to testing\n        Rails applications, covering Test-Driven Development from both a\n        theoretical perspective (why to test) and from a practical perspective\n        (how to test effectively). It covers the core Rails testing tools and\n        procedures for Rails 2 and Rails 3, and introduces popular add-ons,\n        including Cucumber, Shoulda, Machinist, Mocha, and Rcov.\n      </p>"], ["image_url", "rtp.jpg"], ["price", #<BigDecimal:7fb40daeae48,'0.3495E2',18(45)>], ["title", "Rails Test Prescriptions"], ["updated_at", Fri, 08 Aug 2014 21:30:48 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:36:55 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 141ms (Views: 140.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:36:57 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:37:06 +0100
+
+
+Started GET "/products/2" for 127.0.0.1 at 2014-08-08 22:37:48 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered products/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 43ms (Views: 41.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:39:27 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:19 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:38 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:40:46 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (92.9ms)
+Completed 200 OK in 98ms (Views: 96.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-08 22:46:03 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 38ms (Views: 7.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-08 22:46:21 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-08 22:47:50 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-08 23:09:07 +0100
+
+
+Started GET "/products/new" for 127.0.0.1 at 2014-08-08 23:09:10 +0100
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (3.3ms)
+  Rendered products/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Test Title", "description"=>"", "image_url"=>"", "price"=>"0"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered products/_form.html.erb (5.5ms)
+  Rendered products/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:27 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Test Title", "description"=>"blha bla", "image_url"=>"", "price"=>"0"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered products/_form.html.erb (3.8ms)
+  Rendered products/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:43 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-08 23:09:52 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Test Title", "description"=>"blha bla", "image_url"=>"cs.jpg", "price"=>"0"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered products/_form.html.erb (2.6ms)
+  Rendered products/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 23:09:53 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Test Title", "description"=>"blha bla", "image_url"=>"cs.jpg", "price"=>"0.5"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "price", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Aug 2014 22:10:04 UTC +00:00], ["description", "blha bla"], ["image_url", "cs.jpg"], ["price", #<BigDecimal:7fbed922d040,'0.5E0',9(18)>], ["title", "Test Title"], ["updated_at", Fri, 08 Aug 2014 22:10:04 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/products/5
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered products/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-08 23:10:04 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:10:07 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-08 23:10:07 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-08 23:10:07 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-08 23:10:07 +0100
+
+
+Started GET "/products/5" for 127.0.0.1 at 2014-08-08 23:10:14 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered products/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:16:56 +0100
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  app/models/product.rb:5:in `<class:Product>'
+  app/models/product.rb:1:in `<top (required)>'
+  app/controllers/products_controller.rb:7:in `index'
+
+
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:33:09 +0100
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  app/models/product.rb:5:in `<class:Product>'
+  app/models/product.rb:1:in `<top (required)>'
+  app/controllers/products_controller.rb:7:in `index'
+
+
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.4ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (45.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:33:12 +0100
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  app/models/product.rb:5:in `<class:Product>'
+  app/models/product.rb:1:in `<top (required)>'
+  app/controllers/products_controller.rb:7:in `index'
+
+
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-08 23:33:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 31ms
+
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  app/models/product.rb:5:in `<class:Product>'
+  app/models/product.rb:1:in `<top (required)>'
+  app/controllers/products_controller.rb:7:in `index'
+
+
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/LaraBrito/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 00:54:16 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (350.6ms)
+Completed 200 OK in 508ms (Views: 502.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 00:54:17 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 00:56:11 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 00:56:12 +0100
+
+
+Started GET "/products/5" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered products/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 119ms (Views: 93.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 00:57:39 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 00:57:43 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 00:57:43 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 00:57:43 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 00:57:43 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 06:23:17 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 19ms (Views: 14.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 06:32:23 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 72ms (Views: 50.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 10:53:08 +0100
+
+
+Started GET "/products/2" for 127.0.0.1 at 2014-08-09 10:53:38 +0100
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered products/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 319ms (Views: 317.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/2/edit" for 127.0.0.1 at 2014-08-09 10:53:42 +0100
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered products/_form.html.erb (84.5ms)
+  Rendered products/edit.html.erb within layouts/application (133.6ms)
+Completed 200 OK in 192ms (Views: 190.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2014-08-09 12:51:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (84.8ms)
+  Rendered products/new.html.erb within layouts/application (134.6ms)
+Completed 200 OK in 490ms (Views: 377.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Newly", "description"=>"sldfkj lsdkfj lsdkfj", "image_url"=>"image.jpg", "price"=>"25.50"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProduct Exists (17.3ms)[0m  [1mSELECT 1 AS one FROM "products" WHERE "products"."title" = 'Newly' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered products/_form.html.erb (4.0ms)
+  Rendered products/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 70ms (Views: 9.1ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:51:48 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:51:49 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-09 12:52:12 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Newly", "description"=>"sldfkj lsdkfj lsdkfj", "image_url"=>"coffee.jpg", "price"=>"25.50"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProduct Exists (0.2ms)[0m  SELECT 1 AS one FROM "products" WHERE "products"."title" = 'Newly' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered products/_form.html.erb (3.0ms)
+  Rendered products/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:13 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-09 12:52:21 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Newly", "description"=>"sldfkj lsdkfj lsdkfj", "image_url"=>"cs.jpg", "price"=>"25.50"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mProduct Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "products" WHERE "products"."title" = 'Newly' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered products/_form.html.erb (3.4ms)
+  Rendered products/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:22 +0100
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"Newly", "description"=>"sldfkj lsdkfj lsdkfj", "image_url"=>"cs.jpg", "price"=>"25.50"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT 1 AS one FROM "products" WHERE "products"."title" = 'Newly' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered products/_form.html.erb (4.4ms)
+  Rendered products/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:28 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (154.8ms)
+Completed 200 OK in 280ms (Views: 279.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 12:52:29 +0100
+
+
+Started GET "/products/new" for 127.0.0.1 at 2014-08-09 12:52:31 +0100
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (3.3ms)
+  Rendered products/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSNP263qrcMdY6NjlX46HafQUT1gDg/Wf6U5vbUAWes=", "product"=>{"title"=>"newly", "description"=>"sdkfj lsdkjf ldsfjlsoe", "image_url"=>"cs.jpg", "price"=>"24.50"}, "commit"=>"Create Product"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT 1 AS one FROM "products" WHERE "products"."title" = 'newly' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered products/_form.html.erb (2.7ms)
+  Rendered products/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-09 12:52:44 +0100
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-09 12:52:52 +0100
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2014-08-09 12:52:52 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2014-08-09 12:52:52 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2014-08-09 12:52:52 +0100
